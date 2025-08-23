@@ -34,12 +34,12 @@ public class Queue {
         }
 
         data[rear] = norm_task;
-        System.out.println("Tarea agregada: " + norm_task);
+        System.out.println("Tarea programada: " + norm_task);
     }
 
     public String dequeue() {
         if (isEmpty()) {
-            System.out.println("No hay tareas por eliminar.");
+            System.out.println("No hay tareas programadas por eliminar.");
             return null;
         }
 
@@ -58,7 +58,7 @@ public class Queue {
 
     public String peek() {
         if (isEmpty()) {
-            System.out.println("No hay tareas urgentes por realizar.");
+            System.out.println("No hay tareas programadas.");
             return null;
         } else {
             return data[front];
@@ -67,11 +67,11 @@ public class Queue {
 
     public void display() {
         if (isEmpty()) {
-            System.out.println("No hay ninguna tarea pendiente.");
+            System.out.println("No hay tareas programadas.");
             return;
         }
 
-        System.out.println("Tareas pendientes: ");
+        System.out.println("Tareas programadas: ");
             for (int i = front; i <= rear; i++) {
                 System.out.print(data[i] + " | ");
             }
