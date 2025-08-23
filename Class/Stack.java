@@ -22,9 +22,11 @@ public class Stack {
     public void push(String urg_task) {
         if (isFull()) {
             System.out.println("Ya hay demasiadas tareas urgentes por resolver.");
-        } else {
-            data[++top] = urg_task;
+            return;
         }
+
+        data[++top] = urg_task;
+        
 
     }
 
@@ -52,7 +54,7 @@ public class Stack {
         } else {
             System.out.println("Tareas urgentes pendientes: ");
             for (int i = top; i >= 0; i--) {
-                
+                System.out.println((i+1) + ". " + data[i]);
             }
         }
     }
