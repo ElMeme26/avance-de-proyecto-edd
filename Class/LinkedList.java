@@ -102,6 +102,7 @@ public class LinkedList {
     public void show() {
         if (isEmpty()) {
             System.out.println(RED + "\nNo hay tareas pendientes." + RESET);
+            return;
         }
 
         Node iteratorNode = head;
