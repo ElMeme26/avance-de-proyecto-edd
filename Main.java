@@ -24,8 +24,8 @@ public class Main {
         int option = 0;
 
         do {
-            System.out.println(YELLOW + "*** SISTEMA DE GESTIÓN DE TAREAS ***" + RESET);
-            System.out.println("1- Gestionar tareas urgentes (Pila)\n2- Gestionar tareas programadas (Cola)\n3- Gestionar tareas por departamento (Lista)\n4- Salir del programa");
+            System.out.println(YELLOW + "*** IT SOLUTIONS CUU ***" + RESET);
+            System.out.println("1- Gestionar incidentes críticos\n2- Programar tareas\n3- Gestionar tareas por departamento\n4- Salir del programa");
 
             try {
                 System.out.print(BLUE + "\nIngresa una opción: " + RESET);
@@ -41,38 +41,42 @@ public class Main {
                     int urgOption = 0;
 
                     do {
-                        System.out.println(YELLOW + "\n*** Gestor de tareas urgentes ***" + RESET);
-                        System.out.println("1- Agregar tarea urgente\n2- Ver última tarea\n3- Resolver última tarea\n4- Ver todas las tareas urgentes\n5- Regresar al gestor de tareas");
+                        System.out.println(YELLOW + "\n*** Incidentes críticos ***" + RESET);
+                        System.out.println("1- Agregar incidente crítico\n2- Ver último incidente\n3- Marcar como resuelto el último incidente\n4- Ver todas los incidentes críticos\n5- Regresar al gestor de tareas");
 
                         try {
                             System.out.print(BLUE + "\nIngresa una opción: " + RESET);
                             urgOption = scanner.nextInt();
                             scanner.nextLine();
                         } catch (InputMismatchException e) {
-                            System.out.println(RED + "Error. Opción inválida." + RESET);
+                            System.out.println(RED + "Error." + RESET);
                             scanner.nextLine();
                         }
 
                         switch (urgOption) {
                             case 1: 
-                                System.out.print(CYAN + "\nDetalles de la tarea urgente: " + RESET);
+                                System.out.print(CYAN + "\nDetalles del incidente (Ej. Servidor caído, BDD corrompida): " + RESET);
                                 String urgTask = scanner.nextLine();
                                 stack.push(urgTask);
                                 break;
                             
                             case 2:
-                                System.out.print(CYAN + "\nÚltima tarea agregada: " + RESET + YELLOW + stack.peek() + RESET + "\n");
+                                System.out.print(CYAN + "\nÚltima incidente agregado: " + RESET + YELLOW + stack.peek() + RESET + "\n");
                                 break;
 
                             case 3:
                                 String solvedStack = stack.pop();
-                                System.out.println(CYAN + "\nTarea " + RESET + YELLOW + solvedStack + RESET + CYAN + " resuelta." + RESET);
+                                System.out.println(CYAN + "\nIncidente " + RESET + YELLOW + solvedStack + RESET + CYAN + " marcado como resuelto." + RESET);
                                 break;
                             
                             case 4:
                                 stack.show();
                                 break;
 
+                            case 5:
+                                System.out.println("\nRegresando...\n");
+                                break;
+                                
                             default:
                                 System.out.println(RED + "Opción inválida." + RESET);
                                 break;
@@ -85,20 +89,20 @@ public class Main {
 
                     do {
                         System.out.println(YELLOW + "\n*** Gestor de tareas programadas ***" + RESET);
-                        System.out.println("1- Agregar tarea programada\n2- Ver tarea en progreso\n3- Terminar tarea en ejecución\n4- Ver todas las tareas programadas\n5- Regresar al gestor de tareas");
+                        System.out.println("\n1- Programar tarea\n2- Ver tarea en progreso\n3- Marcar como terminada la tarea en progreso\n4- Ver todas las tareas programadas\n5- Regresar al gestor de tareas");
 
                         try {
                             System.out.print(BLUE + "\nIngresa una opción: " + RESET);
                             progOption = scanner.nextInt();
                             scanner.nextLine();
                         } catch (InputMismatchException e) {
-                            System.out.println(RED + "Error. Opción inválida." + RESET);
+                            System.out.println(RED + "Error." + RESET);
                             scanner.nextLine();
                         }
 
                         switch (progOption) {
                             case 1: 
-                                System.out.print(CYAN + "\nDetalles para de la tarea programada: " + RESET);
+                                System.out.print(CYAN + "\nDetalles para programar la tarea: " + RESET);
                                 String progTask = scanner.nextLine();
                                 queue.enqueue(progTask);
                                 break;
@@ -109,11 +113,15 @@ public class Main {
 
                             case 3:
                                 String solvedQueue = queue.dequeue();
-                                System.out.println(CYAN + "\nTarea " + RESET + YELLOW + solvedQueue + RESET + CYAN + " resuelta." + RESET);
+                                System.out.println(CYAN + "\nTarea " + RESET + YELLOW + solvedQueue + RESET + CYAN + " marcada como resuelta." + RESET);
                                 break;
                             
                             case 4:
                                 queue.display();
+                                break;
+
+                            case 5:
+                                System.out.println("\nRegresando...\n");
                                 break;
 
                             default:
@@ -134,7 +142,7 @@ public class Main {
                             deptOption = scanner.nextInt();
                             scanner.nextLine();
                         } catch (InputMismatchException e) {
-                            System.out.println(RED + "Error. Opción inválida." + RESET);
+                            System.out.println(RED + "Error." + RESET);
                             scanner.nextLine();
                         }
 
@@ -164,6 +172,11 @@ public class Main {
 
                             case 5:
                                 linkedList.show();
+                                System.out.println();
+                                break;
+                            
+                            case 6:
+                                System.out.println("\nRegresando...\n");
                                 break;
 
                             default:

@@ -110,7 +110,7 @@ public class LinkedList {
         while (iteratorNode != null) {
             System.out.print(YELLOW + iteratorNode.data + RESET);
             if (iteratorNode.forward != null) {
-                System.out.println(BLUE + " -> " + RESET);
+                System.out.print(BLUE + " -> " + RESET);
             }
             
             iteratorNode = iteratorNode.forward;

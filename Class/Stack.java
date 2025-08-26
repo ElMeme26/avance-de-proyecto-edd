@@ -26,7 +26,7 @@ public class Stack {
 
     public void push(String urg_task) {
         if (isFull()) {
-            System.out.println(RED + "\nYa hay demasiadas tareas urgentes por resolver." + RESET);
+            System.out.println(RED + "\nYa hay demasiados incidentes críticos por atender." + RESET);
             return;
         }
 
@@ -37,7 +37,7 @@ public class Stack {
 
     public String pop() {
         if (isEmpty()) {
-            System.out.println(RED + "\nNo hay tareas urgentes por realizar." + RESET);
+            System.out.println(RED + "\nNo hay incidentes críticos por atender." + RESET);
             return null;
         } else {
             return data[top--];
@@ -46,7 +46,7 @@ public class Stack {
 
     public String peek() {
         if (isEmpty()) {
-            System.out.println(RED + "\nNo hay tareas urgentes por realizar." + RESET);
+            System.out.println(RED + "\nNo hay incidentes críticos por atender." + RESET);
             return null;
         } else {
             return data[top];
@@ -55,7 +55,7 @@ public class Stack {
 
     public void show() {
         if (isEmpty()) {
-            System.out.println(RED + "\nNo hay tareas urgentes por realizar." + RESET);
+            System.out.println(RED + "\nNo hay incidentes críticos por atender." + RESET);
         } else {
             System.out.println(CYAN + "\nTareas urgentes pendientes: " + RESET);
             for (int i = top; i >= 0; i--) {
