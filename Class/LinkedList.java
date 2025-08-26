@@ -2,6 +2,11 @@ package Class;
 
 public class LinkedList {
 
+    private static final String RESET = "\u001B[0m";
+    private static final String RED = "\u001B[31m";
+    private static final String BLUE = "\u001B[34m";
+    private static final String YELLOW = "\u001B[33m";
+
     private Node head;
     private Node tail;
 
@@ -38,7 +43,7 @@ public class LinkedList {
 
     public void deleteFirst() {
         if (isEmpty()) {
-            System.out.println("No hay tareas pendientes.");
+            System.out.println(RED + "\nNo hay tareas pendientes." + RESET);
             return;
         }
 
@@ -52,7 +57,7 @@ public class LinkedList {
 
     public void deleteLast() {
         if (isEmpty()) {
-            System.out.println("No hay tareas pendientes");
+            System.out.println(RED + "\nNo hay tareas pendientes" + RESET);
             return;
         }
 
@@ -73,7 +78,7 @@ public class LinkedList {
 
     public void findByDepartment(String department) {
         if (isEmpty()) {
-            System.out.println("No hay tareas pendientes");
+            System.out.println(RED + "\nNo hay tareas pendientes" + RESET);
             return;
         }
 
@@ -82,7 +87,7 @@ public class LinkedList {
 
         while (iteratorNode != null) {
             if (iteratorNode.data.startsWith(department + ":")) {
-                System.out.println(iteratorNode.data);
+                System.out.println(YELLOW + iteratorNode.data + RESET);
                 found = true;
             }
 
@@ -90,21 +95,21 @@ public class LinkedList {
         }
         
         if (!found) {
-            System.out.println("No se encontraron tareas para el departamento: " + department);
+            System.out.println(RED + "\nNo se encontraron tareas para el departamento: " + department + RESET);
         }
     }
 
     public void show() {
         if (isEmpty()) {
-            System.out.println();
+            System.out.println(RED + "\nNo hay tareas pendientes." + RESET);
         }
 
         Node iteratorNode = head;
 
         while (iteratorNode != null) {
-            System.out.print(iteratorNode.data);
+            System.out.print(YELLOW + iteratorNode.data + RESET);
             if (iteratorNode.forward != null) {
-                System.out.println(" -> ");
+                System.out.println(BLUE + " -> " + RESET);
             }
             
             iteratorNode = iteratorNode.forward;

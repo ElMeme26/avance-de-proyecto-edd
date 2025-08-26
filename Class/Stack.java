@@ -2,6 +2,11 @@ package Class;
 
 public class Stack {
 
+    private static final String RESET = "\u001B[0m";
+    private static final String RED = "\u001B[31m";
+    private static final String CYAN = "\u001B[36m";
+    private static final String YELLOW = "\u001B[33m";
+
     private int top;
     private final int capacity = 5;
     private String[] data;
@@ -21,7 +26,7 @@ public class Stack {
 
     public void push(String urg_task) {
         if (isFull()) {
-            System.out.println("Ya hay demasiadas tareas urgentes por resolver.");
+            System.out.println(RED + "\nYa hay demasiadas tareas urgentes por resolver." + RESET);
             return;
         }
 
@@ -32,7 +37,7 @@ public class Stack {
 
     public String pop() {
         if (isEmpty()) {
-            System.out.println("No hay tareas urgentes por realizar.");
+            System.out.println(RED + "\nNo hay tareas urgentes por realizar." + RESET);
             return null;
         } else {
             return data[top--];
@@ -41,7 +46,7 @@ public class Stack {
 
     public String peek() {
         if (isEmpty()) {
-            System.out.println("No hay tareas urgentes por realizar.");
+            System.out.println(RED + "\nNo hay tareas urgentes por realizar." + RESET);
             return null;
         } else {
             return data[top];
@@ -50,11 +55,11 @@ public class Stack {
 
     public void show() {
         if (isEmpty()) {
-            System.out.println("No hay tareas urgentes por realizar.");
+            System.out.println(RED + "\nNo hay tareas urgentes por realizar." + RESET);
         } else {
-            System.out.println("Tareas urgentes pendientes: ");
+            System.out.println(CYAN + "\nTareas urgentes pendientes: " + RESET);
             for (int i = top; i >= 0; i--) {
-                System.out.println((i+1) + ". " + data[i]);
+                System.out.println(YELLOW + (i+1) + ". " + data[i] + RESET);
             }
         }
     }

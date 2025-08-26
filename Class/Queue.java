@@ -1,6 +1,11 @@
 package Class;
 
 public class Queue {
+    private static final String RESET = "\u001B[0m";
+    private static final String RED = "\u001B[31m";
+    private static final String CYAN = "\u001B[36m";
+    private static final String YELLOW = "\u001B[33m";
+
     private int front;
     private int rear;
     private final int capacity = 40;
@@ -22,7 +27,7 @@ public class Queue {
 
     public void enqueue(String norm_task) {
         if (isFull()) {
-            System.out.println("Ya hay demasiadas tareas programadas.");
+            System.out.println(RED + "\nYa hay demasiadas tareas programadas." + RESET);
             return;
         }
 
@@ -34,12 +39,12 @@ public class Queue {
         }
 
         data[rear] = norm_task;
-        System.out.println("Tarea programada: " + norm_task);
+        System.out.println(CYAN + "\nTarea programada: " + norm_task + RESET);
     }
 
     public String dequeue() {
         if (isEmpty()) {
-            System.out.println("No hay tareas programadas por eliminar.");
+            System.out.println(RED + "\nNo hay tareas programadas por eliminar." + RESET);
             return null;
         }
 
@@ -58,7 +63,7 @@ public class Queue {
 
     public String peek() {
         if (isEmpty()) {
-            System.out.println("No hay tareas programadas.");
+            System.out.println(RED + "\nNo hay tareas programadas." + RESET);
             return null;
         } else {
             return data[front];
@@ -67,14 +72,13 @@ public class Queue {
 
     public void display() {
         if (isEmpty()) {
-            System.out.println("No hay tareas programadas.");
+            System.out.println(RED + "\nNo hay tareas programadas." + RESET);
             return;
         }
 
-        System.out.println("Tareas programadas: ");
+        System.out.println(CYAN + "\nTareas programadas: " + RESET);
             for (int i = front; i <= rear; i++) {
-                System.out.print(data[i] + " | ");
+                System.out.print(YELLOW + data[i] + " | " + RESET);
             }
-        System.out.println();
     }
 }
